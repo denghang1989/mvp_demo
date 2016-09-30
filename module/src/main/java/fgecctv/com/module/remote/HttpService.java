@@ -13,7 +13,7 @@ import rx.Observable;
 public interface HttpService {
 
     @GET("program!getIndexList.action?")
-    Observable<BaseResultEntity<List<Recommend>>> getRecommendProgram(@Query("templateId") String templateId, @Query("menuId") String menuId);
+    Observable<BaseResult<List<Recommend>>> getRecommendProgram(@Query("templateId") String templateId, @Query("menuId") String menuId);
 
     @GET("program!getSearchProgramSerialsId.action")
     Observable<BaseEntity<String>> getSearchMovie(@Query("templateId") String templateId,

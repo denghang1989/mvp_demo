@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * 2016/9/29 13
  */
-public class BaseResultEntity<T> {
+public class BaseResult<T> {
     @SerializedName(value = "code", alternate = {"errNum"})
     private int    code;
     @SerializedName(value = "msg", alternate = {"message", "errMsg"})
