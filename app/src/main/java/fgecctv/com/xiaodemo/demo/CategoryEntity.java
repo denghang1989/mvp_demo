@@ -1,5 +1,7 @@
 package fgecctv.com.xiaodemo.demo;
 
+import java.util.List;
+
 import fgecctv.com.module.remote.HttpService;
 import fgecctv.com.module.remote.response.Recommend;
 import rx.Observable;
@@ -8,9 +10,9 @@ import rx.Subscriber;
 /**
  * 2016/9/30 11
  */
-public class CategoryEntity extends CIBNEntity<Recommend> {
+public class CategoryEntity extends CIBNEntity<List<Recommend>> {
 
-    private String menuId;
+    private String     menuId;
     private Subscriber mSubscriber;
 
     public CategoryEntity(String menuId, Subscriber subscriber) {

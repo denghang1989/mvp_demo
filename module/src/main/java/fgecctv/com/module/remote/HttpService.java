@@ -1,6 +1,7 @@
 package fgecctv.com.module.remote;
 
-import fgecctv.com.module.remote.response.ActionParam;
+import java.util.List;
+
 import fgecctv.com.module.remote.response.Recommend;
 import fgecctv.com.module.remote.response.Weather;
 import retrofit2.http.GET;
@@ -17,8 +18,8 @@ public interface HttpService {
     @GET("http://apis.baidu.com/apistore/weatherservice/cityname")
     Observable<BaseResultEntity<Weather>> getWeatherByCityName(@Query("cityname") String cityname);
 
-    @GET("getIndexList.action?")
-    Observable<BaseResultEntity<Recommend<ActionParam>>> getRecommendProgram(@Query("templateId") String templateId, @Query("menuId") String menuId);
+    @GET("program!getIndexList.action?")
+    Observable<BaseResultEntity<List<Recommend>>> getRecommendProgram(@Query("templateId") String templateId, @Query("menuId") String menuId);
 
 
 }
