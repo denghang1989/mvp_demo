@@ -3,6 +3,7 @@ package fgecctv.com.module.remote;
 import java.util.List;
 
 import fgecctv.com.module.remote.response.CarouselChannel;
+import fgecctv.com.module.remote.response.Device;
 import fgecctv.com.module.remote.response.Recommend;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -27,5 +28,5 @@ public interface HttpService {
     Observable<List<CarouselChannel>> getCarouselChannel(@Query("channelGroupId") String channelGroupId);
 
     @GET("http://cert.ott.cibntv.net/api/auth/?")
-    Call<String> getDeviceId(@Query("type") String type, @Query("recordmode") String recordmode, @Query("addr") String mac);
+    Call<Device> getDeviceId(@Query("type") String type, @Query("recordmode") String recordmode, @Query("addr") String mac);
 }

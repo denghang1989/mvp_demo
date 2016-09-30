@@ -6,6 +6,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -25,6 +26,7 @@ public class HttpManager {
                 client(client).
                 addCallAdapterFactory(RxJavaCallAdapterFactory.create()).
                 addConverterFactory(GsonConverterFactory.create()).
+                addConverterFactory(SimpleXmlConverterFactory.create()).
                 baseUrl(BASE_URL).
                 build();
         mHttpService = retrofit.create(HttpService.class);
