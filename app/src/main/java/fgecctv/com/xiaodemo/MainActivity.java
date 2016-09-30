@@ -10,7 +10,7 @@ import fgecctv.com.module.remote.HttpManager;
 import fgecctv.com.module.remote.HttpOnNextListener;
 import fgecctv.com.module.remote.HttpSubscriber;
 import fgecctv.com.module.remote.response.Recommend;
-import fgecctv.com.xiaodemo.demo.CategoryEntity;
+import fgecctv.com.xiaodemo.entity.CategoryEntity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,23 +27,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         HttpManager httpManager = HttpManager.getInstance(this);
-        /*HttpSubscriber subscriber = new HttpSubscriber(mHttpOnNextListener, this);
-        httpManager.dealHttp(new WeatherEntity("深圳", subscriber));*/
         HttpSubscriber subscriber = new HttpSubscriber(mHttpOnNextListener,this);
-        httpManager.dealHttp(new CategoryEntity("2",subscriber));
+        httpManager.dealHttp(new CategoryEntity(subscriber,"4"));
     }
-
-/*    HttpOnNextListener<Weather> mHttpOnNextListener = new HttpOnNextListener<Weather>() {
-        @Override
-        public void onNext(Weather weather) {
-            mTextView.setText(weather.temp);
-        }
-    };*/
 
     HttpOnNextListener<List<Recommend>> mHttpOnNextListener = new HttpOnNextListener<List<Recommend>>() {
         @Override
         public void onNext(List<Recommend> recommends) {
-            mTextView.setText(recommends.size());
+            mTextView.setText(recommends.size()+"");
         }
     };
 

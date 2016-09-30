@@ -14,8 +14,8 @@ import rx.schedulers.Schedulers;
  * 2016/9/29 11
  */
 public class HttpManager {
-
-    public static final String BASE_URL = "http://s.epg.ott.cibntv.net/epg/web/v40/";
+    private static final String TAG      = "HttpManager";
+    public static final  String BASE_URL = "http://s.epg.ott.cibntv.net/epg/web/v40/";
     private static HttpManager manager;
     private        HttpService mHttpService;
 

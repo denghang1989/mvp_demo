@@ -1,4 +1,4 @@
-package fgecctv.com.xiaodemo.demo;
+package fgecctv.com.xiaodemo.entity;
 
 import java.util.List;
 
@@ -10,14 +10,13 @@ import rx.Subscriber;
 /**
  * 2016/9/30 11
  */
-public class CategoryEntity extends CIBNEntity<List<Recommend>> {
+public class CategoryEntity extends BaseCIBNEntity<List<Recommend>> {
 
     private String     menuId;
-    private Subscriber mSubscriber;
 
-    public CategoryEntity(String menuId, Subscriber subscriber) {
+    public CategoryEntity(Subscriber subscriber, String menuId) {
+        super(subscriber);
         this.menuId = menuId;
-        mSubscriber = subscriber;
     }
 
     @Override

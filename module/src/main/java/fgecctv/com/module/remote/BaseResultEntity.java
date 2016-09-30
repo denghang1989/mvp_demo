@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName;
  * 2016/9/29 13
  */
 public class BaseResultEntity<T> {
-    @SerializedName(value = "code", alternate = {"errNum","id"})
+    @SerializedName(value = "code", alternate = {"errNum"})
     private int    code;
     @SerializedName(value = "msg", alternate = {"message", "errMsg"})
     private String msg;
-    @SerializedName(value = "data", alternate = {"retData","itemList"})
+    @SerializedName(value = "data", alternate = {"retData","itemList","programSerialList"})
     private T      data;
 
     public int getCode() {
