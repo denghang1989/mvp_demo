@@ -10,7 +10,7 @@ public class BaseResultEntity<T> {
     private int    code;
     @SerializedName(value = "msg", alternate = {"message", "errMsg"})
     private String msg;
-    @SerializedName(value = "data", alternate = {"retData"})
+    @SerializedName(value = "data", alternate = {"retData","itemList"})
     private T      data;
 
     public int getCode() {

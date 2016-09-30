@@ -15,7 +15,7 @@ import rx.schedulers.Schedulers;
  */
 public class HttpManager {
 
-    public static final String BASE_URL = "http://lamp.cloudring.net/lamp/";
+    public static final String BASE_URL = "http://s.epg.ott.cibntv.net/epg/web/v40/program!";
     private static HttpManager manager;
     private        HttpService mHttpService;
 
