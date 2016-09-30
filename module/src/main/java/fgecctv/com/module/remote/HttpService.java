@@ -22,5 +22,8 @@ public interface HttpService {
                                                   @Query("pageSize") String pageSize);
 
     @GET("http://play.live.ott.cibntv.net:8080/broadcast/getChannelList?")
-    Observable<BaseEntity<String>> getCarouselChannel(@Query("channelGroupId") String channelGroupId);
+    Observable<String> getCarouselChannel(@Query("channelGroupId") String channelGroupId);
+
+    @GET("http://cert.ott.cibntv.net/api/auth/?")
+    Observable<String> getDeviceId(@Query("type") String type, @Query("recordmode") String recordmode, @Query("addr") String mac);
 }

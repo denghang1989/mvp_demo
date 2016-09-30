@@ -4,12 +4,11 @@ import android.util.Log;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.functions.Func1;
 
 /**
  * 2016/9/29 13
  */
-public abstract class BaseEntity<T> implements Func1<BaseResultEntity<T>, T> {
+public abstract class BaseEntity<T> implements BaseFunc1<BaseResultEntity<T>, T> {
     private static final String TAG = "BaseEntity";
     public abstract Observable getObservable(HttpService method);
 

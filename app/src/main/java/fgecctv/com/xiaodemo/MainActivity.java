@@ -15,6 +15,7 @@ import fgecctv.com.xiaodemo.entity.CategoryEntity;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextView;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +28,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         HttpManager httpManager = HttpManager.getInstance(this);
+
         HttpSubscriber subscriber = new HttpSubscriber(mHttpOnNextListener,this);
         httpManager.dealHttp(new CategoryEntity(subscriber,"4"));
+
+
+
+
     }
 
     HttpOnNextListener<List<Recommend>> mHttpOnNextListener = new HttpOnNextListener<List<Recommend>>() {

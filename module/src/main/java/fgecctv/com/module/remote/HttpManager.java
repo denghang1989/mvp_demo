@@ -41,10 +41,14 @@ public class HttpManager {
         return manager;
     }
 
+    public HttpService getHttpService() {
+        return mHttpService;
+    }
+
     /**
      * 处理http的请求
      */
-    public void dealHttp(BaseEntity basePar) {
+    public <T extends BaseFunc1> void dealHttp(T basePar) {
         Observable observable = basePar.getObservable(mHttpService)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
@@ -52,5 +56,17 @@ public class HttpManager {
                 .map(basePar);
         observable.subscribe(basePar.getSubscriber());
     }
+
+//    /**
+//     * 处理http的请求
+//     */
+//    public void dealHttp(BaseEntity basePar){
+//        Observable observable = basePar.getObservable(mHttpService)
+//                .subscribeOn(Schedulers.io())
+//                .unsubscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .map(basePar);
+//        observable.subscribe(basePar.getSubscriber());
+//    }
 
 }
