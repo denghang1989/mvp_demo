@@ -7,7 +7,7 @@ import rx.Subscriber;
  * 2016/9/29 13
  */
 public abstract class BaseResultEntity<T> implements BaseFunc1<BaseResult<T>, T> {
-    public abstract Observable getObservable(HttpService method);
+    public abstract Observable getObservable(HttpJsonService method);
 
     public abstract Subscriber getSubscriber();
 

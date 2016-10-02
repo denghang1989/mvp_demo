@@ -5,7 +5,6 @@ import java.util.List;
 import fgecctv.com.module.remote.response.CarouselChannel;
 import fgecctv.com.module.remote.response.Device;
 import fgecctv.com.module.remote.response.Recommend;
-import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
@@ -13,7 +12,7 @@ import rx.Observable;
 /**
  * 2016/9/29 13
  */
-public interface HttpService {
+public interface HttpJsonService {
 
     @GET("program!getIndexList.action?")
     Observable<BaseResult<List<Recommend>>> getRecommendProgram(@Query("templateId") String templateId, @Query("menuId") String menuId);
@@ -28,5 +27,5 @@ public interface HttpService {
     Observable<List<CarouselChannel>> getCarouselChannel(@Query("channelGroupId") String channelGroupId);
 
     @GET("http://cert.ott.cibntv.net/api/auth/?")
-    Call<Device> getDeviceId(@Query("type") String type, @Query("recordmode") String recordmode, @Query("addr") String mac);
+    Observable<Device> getDeviceId(@Query("type") String type, @Query("recordmode") String recordmode, @Query("addr") String mac);
 }

@@ -3,7 +3,7 @@ package fgecctv.com.xiaodemo.entity;
 import java.util.List;
 
 import fgecctv.com.module.remote.BaseFunc1;
-import fgecctv.com.module.remote.HttpService;
+import fgecctv.com.module.remote.HttpJsonService;
 import fgecctv.com.module.remote.response.CarouselChannel;
 import rx.Observable;
 import rx.Subscriber;
@@ -22,7 +22,7 @@ public class CarouselChannelEntity implements BaseFunc1<List<CarouselChannel>,Li
     }
 
     @Override
-    public Observable getObservable(HttpService method) {
+    public Observable getObservable(HttpJsonService method) {
         return method.getCarouselChannel(channelGroupId);
     }
 

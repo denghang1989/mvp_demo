@@ -8,6 +8,6 @@ import rx.functions.Func1;
  * 2016/9/30 15
  */
 public interface BaseFunc1<T,R> extends Func1<T,R> {
-    Observable getObservable(HttpService method);
+    Observable getObservable(HttpJsonService method);
     Subscriber getSubscriber();
 }
