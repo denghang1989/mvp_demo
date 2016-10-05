@@ -2,7 +2,7 @@ package fgecctv.com.xiaodemo.entity;
 
 import java.util.List;
 
-import fgecctv.com.module.remote.HttpJsonService;
+import fgecctv.com.module.remote.HttpService;
 import fgecctv.com.module.remote.response.Recommend;
 import rx.Observable;
 import rx.Subscriber;
@@ -20,7 +20,7 @@ public class CategoryEntity extends BaseCIBNEntity<List<Recommend>> {
     }
 
     @Override
-    public Observable getObservable(HttpJsonService method) {
+    public Observable getObservable(HttpService method) {
         return method.getRecommendProgram(TEMPLATEID,menuId);
     }
 

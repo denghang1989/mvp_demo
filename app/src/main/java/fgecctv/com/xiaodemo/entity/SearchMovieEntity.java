@@ -1,6 +1,6 @@
 package fgecctv.com.xiaodemo.entity;
 
-import fgecctv.com.module.remote.HttpJsonService;
+import fgecctv.com.module.remote.HttpService;
 import rx.Observable;
 import rx.Subscriber;
 
@@ -20,7 +20,7 @@ public class SearchMovieEntity extends BaseCIBNEntity {
     }
 
     @Override
-    public Observable getObservable(HttpJsonService method) {
+    public Observable getObservable(HttpService method) {
         return method.getSearchMovie(TEMPLATEID,searchMovie,pageNumber,pageSize);
     }
 

@@ -5,7 +5,6 @@ import android.content.Context;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -15,19 +14,17 @@ import rx.schedulers.Schedulers;
  */
 public class HttpManager {
     public static final  String BASE_URL = "http://s.epg.ott.cibntv.net/epg/web/v40/";
-    private static HttpManager     manager;
-    private        HttpJsonService mHttpService;
-    private        HttpXmlService  mHttpXmlService;
+    private static HttpManager manager;
+    private        HttpService mHttpService;
 
     private HttpManager(Context context) {
         Retrofit retrofit = new Retrofit.Builder().
                 client(OkHttpHelper.createClient(context)).
                 addCallAdapterFactory(RxJavaCallAdapterFactory.create()).
                 addConverterFactory(GsonConverterFactory.create()).
-                addConverterFactory(SimpleXmlConverterFactory.create()).
                 baseUrl(BASE_URL).
                 build();
-        mHttpService = retrofit.create(HttpJsonService.class);
+        mHttpService = retrofit.create(HttpService.class);
     }
 
     public static HttpManager getInstance(Context context) {
@@ -41,25 +38,8 @@ public class HttpManager {
         return manager;
     }
 
-    public HttpJsonService getHttpService() {
+    public HttpService getHttpService() {
         return mHttpService;
-    }
-
-    public HttpXmlService createHttpXmlService(Context context) {
-        if (mHttpXmlService == null) {
-            synchronized (HttpManager.class) {
-                if (mHttpXmlService == null) {
-                    Retrofit retrofit = new Retrofit.Builder().
-                            client(OkHttpHelper.createClient(context)).
-                            addCallAdapterFactory(RxJavaCallAdapterFactory.create()).
-                            addConverterFactory(SimpleXmlConverterFactory.create()).
-                            baseUrl(BASE_URL).
-                            build();
-                    mHttpXmlService = retrofit.create(HttpXmlService.class);
-                }
-            }
-        }
-        return mHttpXmlService;
     }
 
     /**
