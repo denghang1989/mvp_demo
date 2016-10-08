@@ -59,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
                     } else if ("resultCode".equals(xpp.getName())) {
                         device.resultCode = xpp.nextText();
                     }
-                } else if (eventType == XmlPullParser.END_TAG) {
-                } else if (eventType == XmlPullParser.TEXT) {
                 }
                 eventType = xpp.next();
             }
