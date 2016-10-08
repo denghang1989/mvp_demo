@@ -5,5 +5,13 @@ package fgecctv.com.module.remote.response;
  */
 public class Device {
     public String deviceId;
-    public int    resultCode;
+    public String resultCode;
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "deviceId='" + deviceId + '\'' +
+                ", resultCode='" + resultCode + '\'' +
+                '}';
+    }
 }
