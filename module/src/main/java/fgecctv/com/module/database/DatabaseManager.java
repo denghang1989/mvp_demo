@@ -66,7 +66,7 @@ public class DatabaseManager {
      */
     @SuppressWarnings("unchecked")
     public <T> List<T> getQueryByWhere(Class<T> cla, String field, String[] value) {
-        return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?",  value));
+        return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?", (Object) value));
     }
 
     /**
@@ -80,7 +80,7 @@ public class DatabaseManager {
      */
     @SuppressWarnings("unchecked")
     public <T> List<T> getQueryByWhereLength(Class<T> cla, String field, String[] value, int start, int length) {
-        return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?",  value).limit(start, length));
+        return liteOrm.<T>query(new QueryBuilder(cla).where(field + "=?", (Object) value).limit(start, length));
     }
 
     /**

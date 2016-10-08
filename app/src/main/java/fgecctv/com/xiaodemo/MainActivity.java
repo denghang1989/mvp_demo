@@ -20,13 +20,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mTextView = (TextView) findViewById(R.id.activity_main);
+        HttpManager.getInstance(this).dealHttp(new DeviceEntity("1","1","1",new HttpSubscriber(mListener,this)));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        HttpManager.getInstance(this).dealHttp(new DeviceEntity("1","1","1",new HttpSubscriber(mListener,this)));
+
     }
 
     HttpOnNextListener<String> mListener = new HttpOnNextListener<String>() {
